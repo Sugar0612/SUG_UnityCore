@@ -44,7 +44,11 @@ namespace SUG.Essentials
         {
             if (_instance != null) return _instance;
 
+#if UNITY_6000_0_OR_NEWER
+            var arr = GameObject.FindObjectsByType<T>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+#else
             var arr = GameObject.FindObjectsOfType<T>(true);
+#endif
             if (arr.Length > 0)
             {
                 if (arr.Length > 1) 
@@ -115,7 +119,11 @@ namespace SUG.Essentials
         {
             if (_instance == null)
             {
+#if UNITY_6000_0_OR_NEWER
+                _instance = FindAnyObjectByType<T>(FindObjectsInactive.Include);
+#else
                 _instance = GameObject.FindObjectOfType<T>(true);
+#endif
                 if (_instance == null)
                     _instance = new GameObject($"[{typeof(T).Name}]").AddComponent<T>();
             }

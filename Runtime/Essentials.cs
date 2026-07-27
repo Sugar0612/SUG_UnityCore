@@ -10,8 +10,9 @@ namespace SUG.Essentials
 
         public static void Initialize()
         {
-            Debug.Log("essentials initialize");
-            if (_initialized) return;
+            if (_initialized) 
+                return;
+
             _initialized = true;
 
             // 加载Essentials总配置表

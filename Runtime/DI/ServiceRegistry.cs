@@ -56,7 +56,7 @@ namespace SUG.Essentials
         {
             if (_globalServices.ContainsKey(serviceKey))
             {
-                Debug.LogWarning($"Global Service [{serviceKey.serviceType}]=[{serviceKey.id}] 已经注册。");
+                //Debug.LogWarning($"Global Service [{serviceKey.serviceType}]=[{serviceKey.id}] 已经注册。");
                 return;
             }
 
@@ -67,7 +67,7 @@ namespace SUG.Essentials
         {
             if (_sceneServices.ContainsKey(serviceKey))
             {
-                Debug.LogWarning($"Scene Service [{serviceKey.serviceType}]=[{serviceKey.id}] 已经注册。");
+                //Debug.LogWarning($"Scene Service [{serviceKey.serviceType}]=[{serviceKey.id}] 已经注册。");
                 return;
             }
 

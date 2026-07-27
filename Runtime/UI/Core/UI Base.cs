@@ -25,7 +25,11 @@ namespace SUG.Essentials
 
         public virtual void Init() 
         {
+#if UNITY_6000_0_OR_NEWER
+            GameObject parent = isWorldUI ? FindAnyObjectByType<WorldCanvas>().gameObject : FindAnyObjectByType<ScreenCanvas>().gameObject;
+#else
             GameObject parent = isWorldUI ? FindObjectOfType<WorldCanvas>().gameObject : FindObjectOfType<ScreenCanvas>().gameObject;
+#endif
             transform.SetParent(parent.transform);
             transform.localPosition = _localPos;
             transform.localRotation = _localRot;
