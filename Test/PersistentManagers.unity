@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9477109d3ec0625458bcd8c7dfa5f07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _loadingScene: Assets/Game/Scenes/Loading.unity
 --- !u!1 &340637644
 GameObject:
   m_ObjectHideFlags: 0

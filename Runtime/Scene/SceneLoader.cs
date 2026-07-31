@@ -17,7 +17,7 @@ namespace SUG.Essentials
         {
             //SceneManager.sceneLoaded += LoadFirstGameScene;
             if (_firstGameScene != null)
-                _sceneMgr.LoadSceneAsync(_firstGameScene);
+                _sceneMgr.LoadSceneAsync(_firstGameScene, false, LoadSceneMode.Additive);
         }
     }
 }

@@ -4,7 +4,7 @@ using static SUG.Essentials.UIPanelConfigSO;
 
 namespace SUG.Essentials
 {
-    [Service]
+    [Service(lifetime = ServiceLifetime.Global)]
     public sealed class UIManager : MonoBehaviour, IUIService
     {
         private readonly Dictionary<string, UIBase> _uiCache = new();

@@ -18,13 +18,13 @@ namespace SUG.Essentials
         // ==================
         // Interaface achieve
         // ==================
-        public void OnPointerEnter(PointerEventData eventData) => onHoverEnter?.Invoke();
+        public virtual void OnPointerEnter(PointerEventData eventData) => onHoverEnter?.Invoke();
 
-        public void OnPointerExit(PointerEventData eventData) => onHoverExit?.Invoke();
+        public virtual void OnPointerExit(PointerEventData eventData) => onHoverExit?.Invoke();
 
-        public void OnPointerClick(PointerEventData eventData) => onClickEnter?.Invoke();
+        public virtual void OnPointerClick(PointerEventData eventData) => onClickEnter?.Invoke();
 
         // Interface
-        public void OnPointClick() => onClickEnter?.Invoke();
+        // public virtual void OnPointClick() => onClickEnter?.Invoke();
     }
 }

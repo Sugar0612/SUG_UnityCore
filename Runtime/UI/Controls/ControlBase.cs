@@ -19,6 +19,7 @@ namespace SUG.Essentials
         // =============
         private void OnEnable()
         {
+            onClickEnter += () => RaiseTrigger(InteractionTrigger.Selected);
             onHoverEnter += () => RaiseTrigger(InteractionTrigger.HoverEnter);
             onHoverExit += () => RaiseTrigger(InteractionTrigger.HoverExit);
         }

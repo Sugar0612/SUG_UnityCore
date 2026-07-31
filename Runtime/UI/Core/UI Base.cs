@@ -1,6 +1,7 @@
 using DG.Tweening;
 using PlasticGui;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SUG.Essentials
 {
@@ -25,6 +26,7 @@ namespace SUG.Essentials
 
         public virtual void Init() 
         {
+            string sc = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 #if UNITY_6000_0_OR_NEWER
             GameObject parent = isWorldUI ? FindAnyObjectByType<WorldCanvas>().gameObject : FindAnyObjectByType<ScreenCanvas>().gameObject;
 #else
