@@ -17,5 +17,13 @@
     "toolkit"
 ],
 
+"samples": [
+  {
+    "displayName": "Essentials Example",
+    "description": "Example scenes for Essentials",
+    "path": "Samples~/Essentials Example/Scenes"
+  }
+],
+
   "license": "MIT"
 }
