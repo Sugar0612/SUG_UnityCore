@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 namespace SUG.Essentials
@@ -45,12 +48,13 @@ namespace SUG.Essentials
             Scene lastSc = GetActiveScene();
 
             // 加载场景界面显示
-            if (useLoading && _loadingScene != null)
-            {
-                AsyncOperation loading = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(_loadingScene, LoadSceneMode.Additive);
-                yield return loading;
-                SetActiveScene(_loadingScene);
-            }
+            AsyncOperationHandle<SceneInstance> loadingHandle = Addressables.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+            yield return loadingHandle;
+            SetActiveScene(_loadingScene);
+            //if (useLoading && _loadingScene != null)
+            //{
+            //    loadingHandle 
+            //}
 
             // 如果不是Additive，那就卸载lastSc
             if (mode != LoadSceneMode.Additive)
@@ -60,10 +64,10 @@ namespace SUG.Essentials
             }
 
             // 加载新场景并激活
-            AsyncOperation load = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            load.allowSceneActivation = false;
+            var load = Addressables.LoadSceneAsync("Start", LoadSceneMode.Additive, false);
 
-            while (load.progress < 0.9f)
+            // 等待加载完成
+            while (!load.IsDone)
             {
                 yield return null;
             }
@@ -72,22 +76,33 @@ namespace SUG.Essentials
             ServiceRegistry.ClearScene();
             yield return new WaitForSeconds(1.0f);
 
-            // 设置激活
-            load.allowSceneActivation = true;
+            // 激活场景
+            load.Result.ActivateAsync();
 
-            while (!load.isDone)
+            while (!load.Result.Scene.isLoaded)
             {
                 yield return null;
             }
 
             SetActiveScene(sceneName);
 
-            // 卸载【加载场景】
-            if (useLoading && _loadingScene != null)
-            {
-                AsyncOperation unload = UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(_loadingScene);
-                if (unload != null) yield return unload;
-            }
+
+            var unloadd =
+                    Addressables.UnloadSceneAsync(
+                        loadingHandle
+                    );
+
+            yield return unloadd;
+            // 卸载Loading
+            //if (useLoading && _loadingScene != null)
+            //{
+            //    var unload =
+            //        Addressables.UnloadSceneAsync(
+            //            loadingHandle
+            //        );
+
+            //    yield return unload;
+            //}
         }
 
         public void UnloadSceneAsync(string scene)
