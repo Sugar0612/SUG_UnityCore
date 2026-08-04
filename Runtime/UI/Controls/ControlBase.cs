@@ -17,11 +17,22 @@ namespace SUG.Essentials
         // =============
         // Life cycle
         // =============
+
+        private void Start()
+        {
+            RaiseTrigger(InteractionTrigger.ObjectStart);
+        }
+
         private void OnEnable()
         {
             onClickEnter += () => RaiseTrigger(InteractionTrigger.Selected);
             onHoverEnter += () => RaiseTrigger(InteractionTrigger.HoverEnter);
             onHoverExit += () => RaiseTrigger(InteractionTrigger.HoverExit);
+        }
+
+        private void OnDestroy()
+        {
+            RaiseTrigger(InteractionTrigger.ObjectStart);
         }
 
         // =============
@@ -42,6 +53,8 @@ namespace SUG.Essentials
         DeSelect = 1 << 2, // 取消选中
         UnSelctable = 1 << 3, // 无法选中/选择失败
         Selected = 1 << 4, // 选中/选择成功
+        ObjectStart = 1 << 5,
+        ObjectDestroy = 1 << 6,
     }
 
     [Flags]
