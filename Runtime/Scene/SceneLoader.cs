@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 namespace SUG.Essentials
 {
     public class SceneLoader : MonoBehaviour
     {
-        [Scene, SerializeField]
-        private string _firstGameScene;
+        [SerializeField]
+        private AssetReference _firstGameScene;
 
         [Inject] private ISceneService _sceneMgr;
 

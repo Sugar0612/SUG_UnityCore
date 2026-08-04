@@ -17,7 +17,14 @@ namespace SUG.Essentials
 
             // 加载Essentials总配置表
             Settings = Resources.Load<EssentialsSettingsSO>("Essentials/Bootstrap");
-
+            if (Settings == null)
+            {
+                Debug.Log("Settings is invalid.");
+            }
+            else
+            {
+                Debug.Log("Setting is valid.");
+            }
             // 启用规则：注册场景中所有的 IGlobalService 和 ILocalService
             // 场景预载更新场景服务容器。
             ServiceScanner.Initialize();
