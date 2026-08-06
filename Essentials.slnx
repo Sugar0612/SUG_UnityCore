@@ -1,0 +1,8 @@
+﻿<Solution>
+  <Project Path="SUG.Essentials.Runtime.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="SUG.Essentials.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="SUG.EssentialsInstaller.Editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>
