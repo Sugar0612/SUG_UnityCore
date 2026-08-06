@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c737de008872844a82f5d0307806e2c, type: 3}
   m_Name: UISoundCue
   m_EditorClassIdentifier: SUG.Essentials.Runtime::SUG.Essentials.UISoundCueSO
-  rules: []
+  rules:
+  - trigger: 32
+    tags:
+    - {fileID: 11400000, guid: c5a858d4f60d31549817e4a384973571, type: 2}
+    clip: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace SUG.Essentials
 {
     // UI 总配置文件
-    [CreateAssetMenu(fileName = "UISettings", menuName = "Essentials/UI/ASettings")]
+    [CreateAssetMenu(fileName = "UISettings", menuName = "Essentials/UI/UI_Settings")]
     public class UISettingsSO : ScriptableObject
     {
         [Header("Inter Sound Config")]

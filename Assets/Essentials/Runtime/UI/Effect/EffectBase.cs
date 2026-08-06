@@ -24,7 +24,7 @@ namespace SUG.Essentials
         private bool alwaysActive = false;
 
         protected InteractionTrigger _currInterTrigger;
-        protected ControlType _currControlType;
+        protected ObjectTagSO _currControlTag;
 
         // ===================
         // Life cycle
@@ -52,10 +52,10 @@ namespace SUG.Essentials
         // ===================
         // Initialized
         // ===================
-        public virtual void OnTrigger(InteractionTrigger trigger, ControlType types)
+        public virtual void OnTrigger(InteractionTrigger trigger, ObjectTagSO tag)
         {
             _currInterTrigger = trigger;
-            _currControlType = types;
+            _currControlTag = tag;
 
             if ((trigger & _playTrigger) != 0) Play();
             if ((trigger & _stopTrigger) != 0) Stop();

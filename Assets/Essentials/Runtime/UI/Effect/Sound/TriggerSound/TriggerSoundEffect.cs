@@ -1,4 +1,5 @@
 using SUG.Essentials;
+using System.Linq;
 using UnityEngine;
 
 namespace SUG.Essentials
@@ -15,28 +16,28 @@ namespace SUG.Essentials
         // =====================
         // Core function
         // =====================
-        private AudioClip GetClip(InteractionTrigger trigger, ControlType t)
+        private AudioClip GetClip(InteractionTrigger trigger, string t)
         {
             if (_soundCfg == null) _soundCfg = Essentials.Settings.uiSetting.sound;
             foreach (var rule in _soundCfg.rules)
             {
                 if (rule == null || rule.trigger != trigger) continue;
-                if ((rule.types & t) != 0) return rule.clip;
+                if (rule.tags.FirstOrDefault(x => x.tagName == t) != null) return rule.clip;
             }
 
             return null;
         }
 
-        private void PlayClip(InteractionTrigger trigger, ControlType types)
+        private void PlayClip(InteractionTrigger trigger, string t)
         {
             if (_soundCfg == null) _soundCfg = _cfgMgr.GetConfig<UISoundCueSO>();
-            AudioClip c = GetClip(trigger, types);
+            AudioClip c = GetClip(trigger, t);
             _audioMgr.Play(c);
         }
 
         // =====================
         // Override function
         // =====================
-        public override void Play() => PlayClip(_currInterTrigger, _currControlType);
+        public override void Play() => PlayClip(_currInterTrigger, _currControlTag.tagName);
     }
 }

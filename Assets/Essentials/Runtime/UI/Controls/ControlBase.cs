@@ -9,10 +9,10 @@ namespace SUG.Essentials
 {
     public abstract class ControlBase : Interactable
     {
-        [Header("Button type")]
-        public ControlType type;
+        [Header("Control Tag")]
+        public new ObjectTagSO tag;
 
-        public event Action<InteractionTrigger, ControlType> onTrigger;
+        public event Action<InteractionTrigger, ObjectTagSO> onTrigger;
 
         // =============
         // Life cycle
@@ -40,7 +40,7 @@ namespace SUG.Essentials
         // =============
         public void RaiseTrigger(InteractionTrigger trigger)
         {
-            onTrigger?.Invoke(trigger, type);
+            onTrigger?.Invoke(trigger, tag);
         } 
     }
 
@@ -57,14 +57,14 @@ namespace SUG.Essentials
         ObjectDestroy = 1 << 6,
     }
 
-    [Flags]
-    public enum ControlType
-    {
-        None = 0, // 无
-        Start = 1 << 0, // 开始类型
-        Normal = 1 << 1, // 一般类型
-        Theory = 1 << 2, // 理论模式
-    }
+    //[Flags]
+    //public enum ControlType
+    //{
+    //    None = 0, // 无
+    //    Start = 1 << 0, // 开始类型
+    //    Normal = 1 << 1, // 一般类型
+    //    Theory = 1 << 2, // 理论模式
+    //}
 
     // For example:
     /*
