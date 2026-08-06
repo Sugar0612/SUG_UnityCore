@@ -217,7 +217,7 @@ Window
 输入：
 
 ```
-git@github.com:Sugar0612/Essentials.git
+https://github.com/Sugar0612/Essentials.git?path=Assets/Essentials#1.0.0
 ```
 
 
@@ -234,7 +234,7 @@ Packages/manifest.json
 {
   "dependencies": {
     "com.sug.essentials":
-    "https://github.com/Sugar0612/Essentials.git"
+    "https://github.com/Sugar0612/Essentials.git?path=Assets/Essentials#1.0.0"
   }
 }
 ```
