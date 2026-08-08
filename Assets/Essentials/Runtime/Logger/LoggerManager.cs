@@ -14,19 +14,18 @@ namespace SUG.Essentials
 
     public enum LogStatus
     {
-        Normal,
+        Info,
         Warning,
-        Error,
-        Details
+        Error
     }
 
-    public static class LogHelper
+    public static class EssLog
     {
         // —— ILogger ——
         private static UnityLogger _unityLogger;
         private static FileLogger _fileLogger;
 
-        public static void Init()
+        public static void Initialization()
         {
             if (_unityLogger == null) _unityLogger = new UnityLogger();
 
@@ -40,46 +39,37 @@ namespace SUG.Essentials
         // =====================
         private static void LogInfo(string mess, LogChannel channel = LogChannel.Unity)
         {
+            Initialization();
             if ((channel & LogChannel.Unity) != 0) _unityLogger?.LogInfo(mess);
             if ((channel & LogChannel.File) != 0)  _fileLogger?.LogInfo(mess);
         }
 
         private static void LogWarning(string mess, LogChannel channel = LogChannel.Unity)
         {
+            Initialization();
             if ((channel & LogChannel.Unity) != 0) _unityLogger?.LogWarning(mess);
             if ((channel & LogChannel.File) != 0)  _fileLogger?.LogWarning(mess);
         }
 
         private static void LogError(string mess, LogChannel channel = LogChannel.Unity)
         {
+            Initialization();
             if ((channel & LogChannel.Unity) != 0) _unityLogger?.LogError(mess);
             if ((channel & LogChannel.File) != 0)  _fileLogger?.LogError(mess);
         }
 
-        private static void LogDetails(string mess, LogChannel channel = LogChannel.Unity)
+        #region Public interface
+
+        public static void Info(string mess, LogChannel channel = LogChannel.Unity) => LogInfo(mess, channel);
+        public static void Warning(string mess, LogChannel channel = LogChannel.Unity) => LogWarning(mess, channel);
+        public static void Error(string mess, LogChannel channel = LogChannel.Unity) => LogError(mess, channel);
+
+        /// <summary> 特殊方法，可以知道这个LOG是那个文件，哪一行的LOG </summary>
+        public static void Details(string ms, [CallerMemberName] string m = "", [CallerFilePath] string f = "", [CallerLineNumber] int l = 0)
         {
-            if ((channel & LogChannel.Unity) != 0) _unityLogger?.LogDetails(mess);
-            if ((channel & LogChannel.File) != 0)  _fileLogger?.LogDetails(mess);
+            Debug.Log($"[{System.IO.Path.GetFileName(f)}:{l} - {m}] {ms}");
         }
 
-        public static void Log(string mess, LogChannel channel = LogChannel.Unity, LogStatus status = LogStatus.Normal)
-        {
-            Init();
-            switch (status)
-            {
-                case LogStatus.Normal:
-                    LogInfo(mess, channel);
-                    break;
-                case LogStatus.Warning:
-                    LogWarning(mess, channel);
-                    break;
-                case LogStatus.Error:
-                    LogError(mess, channel);
-                    break;
-                case LogStatus.Details:
-                    LogDetails(mess, channel);
-                    break;
-            }
-        }
+        #endregion
     }
 }
