@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SUG.Essentials.DI
 {
-    public static class Essentials
+    public static class EssentialsMethod
     {
         #region Common
 
