@@ -4,6 +4,6 @@ public class TestScript : MonoBehaviour
 {
     private void Start()
     {
-        EssLog.Details("dd");
+        //EssLog.Details("dd");
     }
 }

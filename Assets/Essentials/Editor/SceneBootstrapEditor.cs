@@ -33,7 +33,7 @@ namespace SUG.Essentials.Editor
             if (Object.FindFirstObjectByType<DIBootstrap>() != null)
                 return;
 
-            var go = new GameObject("[Essentials]");
+            var go = new GameObject("[Essentials Bootstrap]");
 
             go.AddComponent<DIBootstrap>();
 

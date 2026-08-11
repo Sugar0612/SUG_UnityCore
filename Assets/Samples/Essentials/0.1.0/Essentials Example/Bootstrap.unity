@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cb3fe24c049b8458d64ddc8435804c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panelCfg: {fileID: 0}
 --- !u!1 &222839756
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +252,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9477109d3ec0625458bcd8c7dfa5f07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadingScene: Assets/Game/Scenes/Loading.unity
+  loadingSc:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_CachedAsset: {fileID: 0}
+    m_CachedGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &340637644
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +305,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameSetting: {fileID: 11400000, guid: cea36d4d4573dcc42a8d9ee8be2a266b, type: 2}
+--- !u!1 &673265945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673265947}
+  - component: {fileID: 673265946}
+  m_Layer: 0
+  m_Name: '[Essentials Bootstrap]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &673265946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673265945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bc477dbfde9c149ac7a5962fa1eac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SUG.Essentials.Runtime::SUG.Essentials.DIBootstrap
+--- !u!4 &673265947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673265945}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899459846
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +393,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6616c61736f84e49a2e64c1c902d9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstGameScene: Assets/Game/Scenes/Start/Start.unity
+  _firstGameScene:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_CachedAsset: {fileID: 0}
+    m_CachedGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1013750286
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,50 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7557b92582b0c43b9a198a892e7e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1374841498
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1374841500}
-  - component: {fileID: 1374841499}
-  m_Layer: 0
-  m_Name: '[Essentials]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1374841499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374841498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0bc477dbfde9c149ac7a5962fa1eac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1374841500
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374841498}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  _audioSource: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -538,4 +554,4 @@ SceneRoots:
   - {fileID: 229880918}
   - {fileID: 899459847}
   - {fileID: 222839758}
-  - {fileID: 1374841500}
+  - {fileID: 673265947}

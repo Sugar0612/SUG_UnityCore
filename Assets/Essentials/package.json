@@ -3,10 +3,10 @@
   "displayName": "Essentials",
   "version": "1.0.1",
   "unity": "2022.3",
-  "description": "A modular foundation library for Unity development.",
+  "description": "A lightweight Unity foundation framework providing dependency injection, service registration, and lifecycle management.",
 
   "author": {
-    "name": "Shiyi Tang"
+    "name": "Shiyi Tang (Sugar0612)"
   },
 
 "keywords": [
@@ -15,14 +15,6 @@
     "runtime",
     "editor",
     "toolkit"
-],
-
-"samples": [
-  {
-    "displayName": "Essentials Example",
-    "description": "Example scenes for Essentials",
-    "path": "Samples~/Essentials Example/Scenes"
-  }
 ],
 
   "license": "MIT"
